@@ -1,0 +1,57 @@
+{
+  "capability": {
+    "device": "/dev/nvme0",
+    "probed_utc": "2026-08-20T22:09:37+00:00",
+    "method": "Identify Controller (read-only)",
+    "crypto_erase_supported": null,
+    "block_erase_supported": null,
+    "overwrite_supported": null,
+    "est_crypto_erase_s": null,
+    "est_block_erase_s": null,
+    "est_overwrite_s": null,
+    "model": null,
+    "firmware": null,
+    "status": "nvme-cli not found on PATH"
+  },
+  "virtual_runs": [
+    {
+      "mode": "VIRTUAL (file-backed, non-destructive)",
+      "image_size_mb": 256,
+      "allocate_s": 0.83,
+      "overwrite_s": 0.344,
+      "verify_s": 0.219,
+      "throughput_mb_s": 745.1,
+      "verification_passed": true,
+      "extrapolated_full_purge_s": 351.8,
+      "extrapolated_full_purge_min": 5.9,
+      "target_capacity_gb": 256.0,
+      "record_hash": "c671a003d053957fa6509cbb5f7f3c56a360bfcbdf91042e23a93d314f87ffbb"
+    },
+    {
+      "mode": "VIRTUAL (file-backed, non-destructive)",
+      "image_size_mb": 256,
+      "allocate_s": 0.844,
+      "overwrite_s": 0.324,
+      "verify_s": 0.216,
+      "throughput_mb_s": 790.2,
+      "verification_passed": true,
+      "extrapolated_full_purge_s": 331.7,
+      "extrapolated_full_purge_min": 5.5,
+      "target_capacity_gb": 256.0,
+      "record_hash": "6dc7020df501d07a50c74bae7a9ed53c59a27184a9f6f552642699e9e5ad5b55"
+    },
+    {
+      "mode": "VIRTUAL (file-backed, non-destructive)",
+      "image_size_mb": 256,
+      "allocate_s": 0.843,
+      "overwrite_s": 0.335,
+      "verify_s": 0.21,
+      "throughput_mb_s": 764.2,
+      "verification_passed": true,
+      "extrapolated_full_purge_s": 343.0,
+      "extrapolated_full_purge_min": 5.7,
+      "target_capacity_gb": 256.0,
+      "record_hash": "ddb8923da2b2cb58a65a094589b71dc40c284bc508a3cd7854429e96d2e8ba92"
+    }
+  ]
+}

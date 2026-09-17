@@ -1,0 +1,7 @@
+TOTAL execution time (steady state)
+  n               = 99
+  median          = 0.324 s
+  Tukey fence     = [0.310, 0.336] s (1.5x IQR)
+  outliers        = 2/99 (2%)  runs: [92, 94]
+  mean/SD (all)   = 0.323 +/- 0.005 s
+  mean/SD (trimmed, n=97) = 0.323 +/- 0.004 s

@@ -1,0 +1,10 @@
+Stage                                 Mean(s)  SD(s)   Share(%)
+--------------------------------------------------------------
+S.M.A.R.T. telemetry poll               0.054   0.001     16.6
+Memory topology enumeration             0.000   0.000      0.0
+Fixed-workload CPU benchmark            0.268   0.004     82.9
+Carbon model evaluation                 0.000   0.000      0.0
+PDF render + SHA-256 digest             0.002   0.000      0.5
+--------------------------------------------------------------
+TOTAL (steady state)                    0.323   0.005    100.0
+TOTAL (incl. cold start)                0.324   0.005

@@ -1,0 +1,49 @@
+Eco-ITAD — Sanitisation Evidence Report
+Generated (UTC): 2026-08-20T22:09:33+00:00
+==============================================================
+
+[A] CONTROLLER CAPABILITY PROBE  (read-only, zero risk)
+--------------------------------------------------------------
+NVMe Sanitisation Capability Probe (read-only)
+====================================================
+Device        : /dev/nvme0
+Model         : None
+Firmware      : None
+SANICAP       : n/a
+Crypto Erase  : None
+Block Erase   : None
+Overwrite     : None
+Est. crypto   : None s
+Est. block    : None s
+Est. overwrite: None s
+Status        : nvme-cli not found on PATH
+
+
+[B] VIRTUAL PURGE BENCHMARK  (3 reps × 256 MB)
+--------------------------------------------------------------
+  rep 1: overwrite=0.344s  verify=0.219s  745.1 MB/s  verified=True
+  rep 2: overwrite=0.324s  verify=0.216s  790.2 MB/s  verified=True
+  rep 3: overwrite=0.335s  verify=0.210s  764.2 MB/s  verified=True
+
+  AGGREGATE
+    overwrite       : 0.334 s  (SD 0.010)
+    verification    : 0.215 s  (SD 0.005)
+    throughput      : 766.5 MB/s (SD 22.6)
+    extrapolated to 256 GB: 342.2 s = 5.7 min  (SD 0.2 min)
+    all verified    : True
+
+
+[C] PASTE INTO TABLE II
+--------------------------------------------------------------
+Sanitisation capability probe (read-only) & $<$0.5 & n/a & --- \\
+Overwrite throughput benchmark & 0.33 & 0.01 & --- \\
+Full purge (256\,GB, extrapolated) & 342 & n/a & --- \\
+
+
+[D] PASTE INTO SECTION III-E
+--------------------------------------------------------------
+block_erase_supported = None
+crypto_erase_supported = None
+declared block erase time = None s
+measured throughput = 766.5 MB/s
+extrapolated full purge = 5.7 min
