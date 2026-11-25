@@ -3,22 +3,22 @@ Paste these into eco_itad.tex
 =============================
 <N>  runs            = 100  (warm-up discarded: 1)
 <M>  nodes           = FILL IN MANUALLY (how many machines you tested)
-<X>  mean total      = 0.323 s   (steady state)
-<Y>  SD total        = 0.005 s   (steady state)
-     incl. cold start= 0.324 +/- 0.005 s
-<MED> median         = 0.324 s
-     Tukey fence     = [0.310, 0.336] s (1.5x IQR), 2/99 runs beyond it
-<X'> trimmed mean   = 0.323 s   (n=97, 2 outliers excluded)
-<Y'> trimmed SD     = 0.004 s
+<X>  mean total      = 0.998 s   (steady state)
+<Y>  SD total        = 0.011 s   (steady state)
+     incl. cold start= 0.998 +/- 0.011 s
+<MED> median         = 0.998 s
+     Tukey fence     = [0.977, 1.018] s (1.5x IQR), 8/99 runs beyond it
+<X'> trimmed mean   = 0.998 s   (n=91, 8 outliers excluded)
+<Y'> trimmed SD     = 0.008 s
      NOTE: if runs>=100, prefer median/IQR or the trimmed mean over the
            plain mean/SD above -- see robust_stats.txt and BUG 19 in this
            file's docstring for why.
-<Z>  peak CPU        = 109.5 % of ONE logical core
-                       = 4.6 % of the 24-core system
+<Z>  peak CPU        = 109.1 % of ONE logical core
+                       = 4.5 % of the 24-core system
      NOTE: values slightly above 100% are a psutil sampling artefact,
            NOT Turbo Boost. Do not attribute them to frequency scaling.
-<A>  min RSS         = 75.5 MB
-<B>  max RSS         = 76.3 MB
+<A>  min RSS         = 75.8 MB
+<B>  max RSS         = 76.5 MB
      bytes written   = 142
      NOTE: cite verify_zero_write.py for the zero-write claim; this figure
            still includes interpreter and harness overhead.

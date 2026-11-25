@@ -91,6 +91,8 @@ def build_certificate(hw: dict, carbon: dict,
     line(f"Installed RAM  : {hw['ram_gb']} GB")
     line(f"Storage Model  : {hw['drive_model']}")
     line(f"Telemetry Src. : {hw['telemetry_source']}")
+    if hw.get("telemetry_device"):
+        line(f"Telemetry Dev. : {hw['telemetry_device']}", 8)
     if not hw.get("telemetry_reliable", True):
         line("*** TELEMETRY UNRELIABLE -- no endurance grounding ***",
              10, bold=True, color=(0.7, 0, 0))
@@ -104,6 +106,10 @@ def build_certificate(hw: dict, carbon: dict,
          + ("  [SATURATED at 1.0]" if "memory" in hw.get("saturated_terms", []) else ""))
     line(f"H_compute (w={config.W_COMPUTE}) : {hw['h_compute']}"
          + ("  [SATURATED at 1.0]" if "compute" in hw.get("saturated_terms", []) else ""))
+    if hw.get("h_compute_quantum") and not hw.get("score_is_degenerate", False):
+        line(f"  (quantised to {hw['h_compute_quantum']} bands; "
+             f"raw median {hw.get('h_compute_unquantised', hw['h_compute'])}, "
+             f"samples {hw.get('benchmark_samples', [])})", 7)
     line(f"S_health              : {hw['score']}", bold=True)
     if hw.get("score_is_degenerate"):
         line("NOTE: one or more sub-scores saturated; S_health does not "

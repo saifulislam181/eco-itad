@@ -37,10 +37,31 @@ B_REF_SOURCE = ("declared enterprise baseline; evaluation platform measured "
 # --- Benchmark harness ---
 BENCH_ITERATIONS = 3_000_000   # fixed deterministic workload size
 BENCH_WARMUP_RUNS = 1          # discarded cold-start runs (interpreter warm-up)
+COMPUTE_BENCH_REPEATS = 3      # median-of-N internal repeats for H_c (BUG 21):
+                               # suppresses transient timing spikes (BUG 19)
+                               # before the value is quantised below.
+COMPUTE_QUANTUM = 0.05         # H_c is rounded to this step (BUG 21) so that
+                               # ordinary timing jitter smaller than one band
+                               # cannot change the reported S_health. Smaller
+                               # = more sensitive to real hardware
+                               # differences but less robust to jitter;
+                               # larger = the reverse. 0.05 gives 21 bands
+                               # over [0,1].
 
 # --- Device / capacity ---
-# smartctl device string. On Windows, smartctl maps physical disk 0 to /dev/sda.
+# smartctl device string. Kept only as the LAST-RESORT legacy candidate;
+# diagnostics.read_smart() now asks `smartctl --scan` for the real device
+# list first (see BUG 20). "/dev/sda" is the common Windows convention, but
+# is not universal across smartctl builds/drivers.
 SMART_DEVICE = "/dev/sda" if platform.system() == "Windows" else "/dev/nvme0"
+# Extra Windows-specific fallback candidates, tried after --scan and after
+# SMART_DEVICE, because `smartctl --scan` was observed NOT to list these
+# even when they were the only device string that actually worked on a
+# real Windows test machine (PhysicalDrive numbering exposed by some
+# smartctl/driver combinations as "/dev/pd0", "/dev/pd1", ...).
+SMART_DEVICE_EXTRA_FALLBACKS = (
+    ["/dev/pd0", "/dev/pd1"] if platform.system() == "Windows" else []
+)
 NVME_DEVICE  = "/dev/nvme0"     # used only by the NVMe capability probe
 TARGET_CAPACITY_GB = 1024.0     # capacity of the drive under test (was 256.0)
 
